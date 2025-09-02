@@ -1,0 +1,42 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# C extensions
+*.so
+
+# Virtual environment folders
+.venv/
+venv/
+env/
+
+# PyCharm project files
+.idea/
+
+# macOS files
+.DS_Store
+
+# Python egg files and cache
+*.egg-info/
+.eggs/
+*.egg
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Encrypted or runtime files
+*.pyo
+*.pyd
+
+# TensorFlow/Keras model files (can be large)
+*.h5
+
+# Static images or uploaded files (optional: exclude if you don’t want them in Git)
+static/images/
+
+# Logs and databases
+*.log
+*.sqlite3
+
+# VS Code settings
+.vscode/
