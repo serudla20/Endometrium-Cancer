@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>ENDOMETRIUM CANCER DETECTION</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <style>
+    body {
+      background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlmIv9fNeEZk8_HccXp5zoNFaeFKKBxZaH9A&s') no-repeat center center fixed;
+      background-size: cover;
+      min-height: 100vh;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
+    .form-wrapper {
+      background: rgba(0, 0, 0, 0.65);
+      padding: 35px 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+      width: 350px;
+      margin: 40px auto;
+      color: #fff;
+    }
+
+    .form-wrapper label {
+      color: #ffffff;
+      font-weight: 400;
+    }
+
+    .form-wrapper input[type="text"],
+    .form-wrapper input[type="email"],
+    .form-wrapper input[type="tel"],
+    .form-wrapper input[type="password"] {
+      background: #222;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 8px 10px;
+    }
+
+    .form-wrapper .btn {
+      width: 100%;
+      margin-top: 15px;
+    }
+
+    .form-wrapper a {
+      color: #b4e1ff;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    h2 {
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .alert {
+      margin: 20px auto;
+      width: 350px;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button
+          type="button"
+          class="navbar-toggle"
+          data-toggle="collapse"
+          data-target="#myNavbar"
+        >
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">ENDOMETRIUM CANCER DETECTION</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li><a href="#" onclick="showForm('#form-login')">Home</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#" onclick="showForm('#form-login')"><span class="glyphicon glyphicon-user"></span> User</a></li>
+          <!-- Removed graph link here -->
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  {% if msg %}
+  <div class="alert alert-warning alert-dismissible">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Warning!</strong> {{ msg }}
+  </div>
+  {% endif %}
+
+  <div class="form-wrapper" id="form-login" style="display: block;">
+    <h2>User Login</h2>
+    <form method="post" action="{{ url_for('userlog') }}">
+      <div class="form-group">
+        <label for="login-username">Username:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="login-username"
+          name="name"
+          placeholder="Enter username"
+          required
+          autocomplete="username"
+        />
+      </div>
+      <div class="form-group">
+        <label for="login-password">Password:</label>
+        <input
+          type="password"
+          class="form-control"
+          id="login-password"
+          name="password"
+          placeholder="Enter password"
+          required
+          autocomplete="current-password"
+        />
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <p style="margin-top:15px; text-align:center;">
+      Don't have an account? 
+      <a onclick="showForm('#form-register')">Sign up</a>
+    </p>
+  </div>
+
+  <div class="form-wrapper" id="form-register" style="display: none;">
+    <h2>User Registration</h2>
+    <form method="post" action="{{ url_for('userreg') }}">
+      <div class="form-group">
+        <label for="register-username">Username:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="register-username"
+          name="name"
+          placeholder="Enter username"
+          required
+          autocomplete="username"
+        />
+      </div>
+      <div class="form-group">
+        <label for="register-email">Email:</label>
+        <input
+          type="email"
+          class="form-control"
+          id="register-email"
+          name="email"
+          placeholder="Enter email"
+          required
+          autocomplete="email"
+        />
+      </div>
+      <div class="form-group">
+        <label for="register-phone">Mobile No.:</label>
+        <input
+          type="tel"
+          class="form-control"
+          id="register-phone"
+          name="phone"
+          placeholder="Enter mobile number"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="register-password">Password:</label>
+        <input
+          type="password"
+          class="form-control"
+          id="register-password"
+          name="password"
+          placeholder="Enter password"
+          required
+          autocomplete="new-password"
+        />
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <p style="margin-top:15px; text-align:center;">
+      Already have an account? 
+      <a onclick="showForm('#form-login')">Sign in</a>
+    </p>
+  </div>
+
+  <script>
+    function showForm(idToShow) {
+      document.getElementById("form-login").style.display = "none";
+      document.getElementById("form-register").style.display = "none";
+
+      document.querySelector(idToShow).style.display = "block";
+    }
+  </script>
+</body>
+</html>

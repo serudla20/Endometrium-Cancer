@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Endometrium Cancer Detection</title>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+      /* .row{
+        display: flex;
+        padding-left: 2%;
+        padding-right: 2%;
+      }
+      .column{
+        width: 30%;
+        margin: 1%;
+      } */
+      input[type=submit], input[type=file]{
+        width: 50%;
+        border:1px solid #ffffff;
+        color: white;
+        background-color: transparent;
+        padding:14px 0;
+        margin: 8px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      input[type=submit]{
+        border:1px solid #ffffff;
+      }
+      input[type=submit]:hover{
+        background-color: #ffffff;
+        color: black;
+      }
+      h1{
+        color: rgb(14, 13, 13);
+      }
+      .imageCoose{
+        width: 50%;
+        margin: auto;
+        padding: 50px;
+        background-color: rgba(0, 0, 0, 0.50);
+        color: white;
+      }
+      .row{
+        background-color: wheat;
+        font-size: 14px;
+        margin: 150px 25px;
+        padding: 50px;
+      }
+      img{
+       width: 100%;
+       margin-bottom: 30px;     }
+      body{
+        background-color: mintcream;
+        
+      }
+      h4{
+        text-align: center;
+      }
+      h2{
+        text-align: center;
+      }
+    </style>
+</head>
+ <body style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtOCjpbRedW4tLZaMeFhgURdc1SP3n6QJtkQ&s');background-size: cover;background-attachment: fixed;" > 
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+     
+  
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+        </button>
+        <a class="navbar-brand" data-value="#form1" onclick="toggleform(event)">Endometrium Cancer Detection</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <!-- <li ><a data-value="#form1" onclick="toggleform(event)"><span class="glyphicon glyphicon-home"></span>Home</a></li> -->
+          <!-- <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Page 1-1</a></li>
+              <li><a href="#">Page 1-2</a></li>
+              <li><a href="#">Page 1-3</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Page 2</a></li>
+          <li><a href="#">Page 3</a></li> -->
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+    <div class="container">
+     
+  <!-- <center> -->
+  <h1 style="padding-top: 50px; text-align: center;color: white;">PREDICTION OF ENDOMETRIAL CANCER AND ITS GRADE,TNM STAGING USING IMAGE PREPROCESSING AND MACHINE LEARNING</h1>
+  <hr>
+  {% if msg %}
+  <div class="alert alert-warning alert-dismissible">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Warning!</strong> {{msg}}
+  </div>
+  {% endif %}
+  <div class="imageCoose" >
+      <h2>Select Image</h2>
+      <hr>
+        <form action="{{url_for('image')}}" method="POST" style="display: flex;">          
+          <input type="file" id="file" name="filename" required>
+          <input type="submit" value="Analyse">
+        </form>
+    </div>
+
+ 
+    
+</body>
+</html>
